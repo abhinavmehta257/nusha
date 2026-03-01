@@ -16,8 +16,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-   --font-prata: "Prata", sans-serif; 
-   --font-inter: "Inter", sans-serif; 
+   --font-prata: "Prata"; 
+   --font-inter: "Inter"; 
 }
 
 /* @media (prefers-color-scheme: dark) {

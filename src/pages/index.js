@@ -23,7 +23,7 @@ export default function Home() {
     <Head>
       <title>Nusha Studio</title>
     </Head>
-      <div className="px-16 mx-auto items-center">
+      <div className="md:px-16 px-4 mx-auto items-center">
         <div>
           <Header/>
           <Hero/>
