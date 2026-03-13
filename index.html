@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="upload" accept="image/*" />
+    <canvas id="canvas" width="256" height="320"></canvas>
+
+    <script>
+        const upload = document.getElementById("upload");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const LOGICAL_WIDTH = 128;
+        const LOGICAL_HEIGHT = 160;
+        const SCALE = 4;
+
+        upload.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+            img.src = event.target.result;
+        };
+
+        img.onload = () => {
+            pixelateImage(img);
+        };
+
+        reader.readAsDataURL(file);
+        });
+
+        function pixelateImage(img) {
+        const offCanvas = document.createElement("canvas");
+        offCanvas.width = LOGICAL_WIDTH;
+        offCanvas.height = LOGICAL_HEIGHT;
+
+        const offCtx = offCanvas.getContext("2d");
+        offCtx.imageSmoothingEnabled = false;
+
+        // Clear with black (letterbox background)
+        offCtx.fillStyle = "black";
+        offCtx.fillRect(0, 0, LOGICAL_WIDTH, LOGICAL_HEIGHT);
+
+        // Calculate aspect-fit
+        const imgRatio = img.width / img.height;
+        const targetRatio = LOGICAL_WIDTH / LOGICAL_HEIGHT;
+
+        let drawWidth, drawHeight, offsetX, offsetY;
+
+        if (imgRatio > targetRatio) {
+            // Image is wider
+            drawWidth = LOGICAL_WIDTH;
+            drawHeight = LOGICAL_WIDTH / imgRatio;
+            offsetX = 0;
+            offsetY = (LOGICAL_HEIGHT - drawHeight) / 2;
+        } else {
+            // Image is taller
+            drawHeight = LOGICAL_HEIGHT;
+            drawWidth = LOGICAL_HEIGHT * imgRatio;
+            offsetY = 0;
+            offsetX = (LOGICAL_WIDTH - drawWidth) / 2;
+        }
+
+        offCtx.drawImage(
+            img,
+            offsetX,
+            offsetY,
+            drawWidth,
+            drawHeight
+        );
+
+        // Clear main canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.imageSmoothingEnabled = false;
+
+        // Draw scaled up (4x4 blocks)
+        ctx.drawImage(
+            offCanvas,
+            0,
+            0,
+            LOGICAL_WIDTH,
+            LOGICAL_HEIGHT,
+            0,
+            0,
+            LOGICAL_WIDTH * SCALE,
+            LOGICAL_HEIGHT * SCALE
+        );
+        }
+    </script>
+</body>
+</html>
