@@ -1,10 +1,13 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 
 function Section2() {
+//   const notify = () => toast("Wow so easy!");
+    
   return (
     <section className='flex flex-col items-center justify-center mt-[112px]'>
         <img className='md:w-[590px] w-[294px]' src="/assets/logo/logo_black.svg" alt="Nusha.Studio Logo" srcset="" />
-        <h5 className='text-[24px] font-inter text-[#0E0D0F]'>
+        <h5 className='md:text-[24px] text-[16px] font-inter text-[#0E0D0F]'>
             Anushka Mukherjee
         </h5>
         <div className='mt-[80px] flex flex-col items-center md:gap-[52px] gap-[48px]'>
@@ -15,7 +18,7 @@ function Section2() {
                 <a target="_blank" href="https://www.instagram.com/nusha.studio/">
                     <img src="/assets/icons/instagram.png" alt="" srcset="" />
                 </a>
-                <a target="_blank" href="mailto:anushka.mukherjee666@gmail.com">
+                <a target="_blank" href="mailto:correspondence@nusha.studio">
                     <img src="/assets/icons/email-outline.png" alt="" srcset="" />
                 </a>
             </div>
