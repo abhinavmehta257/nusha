@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prata&display=swap');
+@import "tailwindcss";
+
 .section1-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 720px;
 }
-@import "tailwindcss";
 
 :root {
   --background: #FCFAF7;
@@ -14,13 +14,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-   --font-prata: "Prata"; 
-   --font-inter: "Inter"; 
+  --font-prata: var(--font-prata), serif;
+  --font-inter: var(--font-inter), sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
 }
