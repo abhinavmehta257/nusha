@@ -11,19 +11,18 @@ function Section2() {
             Anushka Mukherjee
         </h5>
         <div className='mt-[80px] flex flex-col items-center md:gap-[52px] gap-[48px]'>
-            <p className='md:text-[32px] text-[24px] font-inter text-[#131313]'>
-                Private enquiries via email.
+            <p className='md:text-[32px] text-[24px] font-inter text-[#131313] flex flex-col items-center text-center'>
+                Private enquiries via 
+                <a className="font-inter text-[24px] md:text-[32px] underline" href="mailto:correspondence@nusha.studio" target='_blank'>
+                    correspondence@nusha.studio
+                </a>
             </p>
             <div className='flex gap-6 justify-center'>
                 <a target="_blank" href="https://www.instagram.com/nusha.studio/">
                     <img src="/assets/icons/instagram.png" alt="" srcset="" />
                 </a>
-                <a target="_blank" href="mailto:correspondence@nusha.studio">
-                    <img src="/assets/icons/email-outline.png" alt="" srcset="" />
-                </a>
             </div>
         </div>
-        
     </section>
   )
 }
