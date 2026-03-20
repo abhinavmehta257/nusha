@@ -13,7 +13,7 @@ function Section2() {
         <div className='mt-[80px] flex flex-col items-center md:gap-[52px] gap-[48px]'>
             <p className='md:text-[32px] text-[24px] font-inter text-[#131313] flex flex-col items-center text-center'>
                 Private enquiries via 
-                <a className="font-inter text-[24px] md:text-[32px] underline" href="mailto:correspondence@nusha.studio" target='_blank'>
+                <a className="font-inter text-[20px] md:text-[32px] underline" href="mailto:correspondence@nusha.studio" target='_blank'>
                     correspondence@nusha.studio
                 </a>
             </p>
